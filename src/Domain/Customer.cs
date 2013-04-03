@@ -13,7 +13,7 @@ namespace Domain
             get { return _id; }
         }
 
-        public Customer(Name name, DateTime dateOfBirth, StreetAddress primaryAddress, MaritalStatus maritalStatus)
+        public Customer(Name name, DateTime dateOfBirth, StreetAddress primaryAddress, MaritalStatus maritalStatus, GenderEnum gender)
         {
             ApplyChange(new CustomerRegistered
                 {
