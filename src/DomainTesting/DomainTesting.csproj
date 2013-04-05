@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4913C3E2-8B80-4B7F-A831-36555431812F}</ProjectGuid>
+    <ProjectGuid>{0D3ABDF5-9E7E-4FC4-9D28-8B2AA45BB23C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommandHandlers</RootNamespace>
-    <AssemblyName>CommandHandlers</AssemblyName>
+    <RootNamespace>CQRSSample.DomainTesting</RootNamespace>
+    <AssemblyName>CQRSSample.DomainTesting</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,10 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handles.cs" />
-    <Compile Include="Persistence\Repository.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterNewCustomerCommandHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

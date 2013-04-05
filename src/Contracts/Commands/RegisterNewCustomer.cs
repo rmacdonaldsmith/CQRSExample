@@ -23,5 +23,7 @@ namespace Contracts.Commands
         public string Zip { get; set; }
 
         public string MaritalStatus { get; set; }
+
+        public string Gender { get; set; }
     }
 }

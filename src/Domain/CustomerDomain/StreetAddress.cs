@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
+using Domain;
 
-namespace Domain
+namespace CQRSSample.Domain.CustomerDomain
 {
     public sealed class StreetAddress
     {

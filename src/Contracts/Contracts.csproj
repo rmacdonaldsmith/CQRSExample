@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>db9bb54a-c4a3-4d39-8dcb-fe0014cc0f56</ProjectGuid>
+    <ProjectGuid>{12A410DE-1AEC-4F10-B62C-FEAFBB643350}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Contracts</RootNamespace>
@@ -40,9 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Commands\ChangeCustomersMaritalStatus.cs" />
+    <Compile Include="Commands\CustomerMovingToNewAddress.cs" />
+    <Compile Include="Commands\RegisterNewCustomer.cs" />
+    <Compile Include="Events\CustomerMaritalStatusChanged.cs" />
+    <Compile Include="Events\CustomerMovedToNewAddress.cs" />
+    <Compile Include="Events\CustomerRegistered.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IEvent.cs" />
+    <Compile Include="IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

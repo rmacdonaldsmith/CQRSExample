@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Domain;
 
-namespace Domain.Persistence
+namespace CQRSSample.Domain.Persistence
 {
-    public interface IRepository<T> where T : AggregateRoot, new()
+    public interface IRepository<out T> where T : AggregateRoot, new()
     {
         void Save(AggregateRoot aggregate, int expectedVersion);
         T GetById(Guid id);
     }
 
-    public class Repository<T> : IRepository<T> where T : AggregateRoot, new() //shortcut you can do as you see fit with new()
+    public class Repository<T> : IRepository<T> where T : AggregateRoot, new() //new here means that we can instantiate the agg instance using a default constructor
     {
         private readonly IEventStore _storage;
 
@@ -22,14 +20,14 @@ namespace Domain.Persistence
 
         public void Save(AggregateRoot aggregate, int expectedVersion)
         {
-            _storage.SaveEvents(aggregate.Id, aggregate.GetUncommittedChanges(), expectedVersion);
+            _storage.Save(aggregate.Id, aggregate.GetUncommittedEvents, expectedVersion);
         }
 
         public T GetById(Guid id)
         {
-            var obj = new T();//lots of ways to do this
-            var e = _storage.GetEventsForAggregate(id);
-            obj.LoadsFromHistory(e);
+            var obj = new T();
+            var events = _storage.GetForAggregate(id);
+            obj.LoadsFromHistory(events);
             return obj;
         }
     }

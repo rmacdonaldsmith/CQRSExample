@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Domain
+namespace CQRSSample.Domain.CustomerDomain
 {
     public sealed class GenderEnum
     {

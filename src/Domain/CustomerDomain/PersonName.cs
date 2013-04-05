@@ -1,6 +1,6 @@
-﻿namespace Domain
+﻿namespace CQRSSample.Domain.CustomerDomain
 {
-    public sealed class Name
+    public sealed class PersonName
     {
         public string FirstName { get; set; }
 
@@ -28,7 +28,7 @@
             get { return string.Format("{0} {1} {2}", FirstName, MiddleName, LastName); }
         }
 
-        public Name(string firstName, string middleName, string lastName)
+        public PersonName(string firstName, string middleName, string lastName)
         {
             FirstName = firstName;
             MiddleName = middleName;
