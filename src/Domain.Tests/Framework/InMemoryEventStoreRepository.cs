@@ -4,7 +4,7 @@ using CQRSSample.Domain.Persistence;
 using Contracts;
 using Domain;
 
-namespace CQRSSample.Domain.Tests
+namespace CQRSSample.Domain.Tests.Framework
 {
     public sealed class InMemoryEventStoreRepository<T> : ITestableRepository<T> where T : AggregateRoot, new()
     {

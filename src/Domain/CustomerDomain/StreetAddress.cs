@@ -48,7 +48,7 @@ namespace CQRSSample.Domain.CustomerDomain
         {
             //basic validation - you can get more complex if you want to.
             //attribution of credit: http://blog.platformular.com/2012/03/03/how-to-validate-us-zip-code-in-c/
-            string pattern = @"^\\d{5}(\\-\\d{4})?$";
+            string pattern = @"^\d{5}(\-\d{4})?$";
             var regex = new Regex(pattern);
 
             return regex.IsMatch(zipCode);

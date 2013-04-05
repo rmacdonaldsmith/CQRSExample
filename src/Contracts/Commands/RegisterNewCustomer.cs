@@ -25,5 +25,7 @@ namespace Contracts.Commands
         public string MaritalStatus { get; set; }
 
         public string Gender { get; set; }
+
+        public Guid CustomerId { get; set; }
     }
 }

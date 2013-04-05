@@ -21,7 +21,7 @@ namespace CQRSSample.Domain.CustomerDomain
             //empty for the repository / applicatio services / command handlers to be able to create instances
         }
 
-        public void RegisterNewCustomer(PersonName personName, DateTime dateOfBirth, StreetAddress primaryAddress, MaritalStatus maritalStatus, GenderEnum gender)
+        public void RegisterNewCustomer(Guid customerId, PersonName personName, DateTime dateOfBirth, StreetAddress primaryAddress, MaritalStatus maritalStatus, GenderEnum gender)
         {
             //do any business logic in here and fail if there is a problem
             ApplyChange(new CustomerRegistered
@@ -29,8 +29,9 @@ namespace CQRSSample.Domain.CustomerDomain
                     City = primaryAddress.City,
                     DateOfBirth = dateOfBirth,
                     FirstName = personName.FirstName,
+                    Gender = gender.Gender,
                     HouseNumber = primaryAddress.HouseNumber,
-                    Id = new Guid(),
+                    Id = customerId,
                     LastName = personName.LastName,
                     MaritalStatus = maritalStatus.Status,
                     MiddleName = personName.MiddleName,
@@ -60,13 +61,13 @@ namespace CQRSSample.Domain.CustomerDomain
                 });
         }
 
-        private void When(CustomerRegistered customerRegisteredEvent)
+        internal void When(CustomerRegistered customerRegisteredEvent)
         {
             _id = customerRegisteredEvent.Id;
             _maritalStatus = MaritalStatus.Parse(customerRegisteredEvent.MaritalStatus);
         }
 
-        private void When(CustomerMaritalStatusChanged evnt)
+        internal void When(CustomerMaritalStatusChanged evnt)
         {
             _maritalStatus = MaritalStatus.Parse(evnt.MaritalStatus);
         }

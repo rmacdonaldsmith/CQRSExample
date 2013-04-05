@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CQRSSample.Domain.Persistence;
 using Contracts;
 
-namespace CQRSSample.Domain.Tests
+namespace CQRSSample.Domain.Tests.Framework
 {
     public sealed class FakeEventStore : IEventStore
     {

@@ -43,11 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionThrownEvent.cs" />
-    <Compile Include="FakeEventStore.cs" />
-    <Compile Include="InMemoryEventStoreRepository.cs" />
-    <Compile Include="ITestableRepository.cs" />
-    <Compile Include="SpecificationBase.cs" />
+    <Compile Include="Customer\registering_a_new_customer.cs" />
+    <Compile Include="Framework\ExceptionThrownEvent.cs" />
+    <Compile Include="Framework\FakeEventStore.cs" />
+    <Compile Include="Framework\InMemoryEventStoreRepository.cs" />
+    <Compile Include="Framework\ITestableRepository.cs" />
+    <Compile Include="Framework\SpecificationBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

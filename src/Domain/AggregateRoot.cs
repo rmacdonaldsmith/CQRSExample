@@ -38,7 +38,7 @@ namespace Domain
         {
             //let the compiler do the work to figure out which method to call
             //NOTE:I have done this for simplicity; I would not recommend releasing this to PROD - there are lots of ways to do this, just Google around
-            ((dynamic) this).Apply(@event as dynamic);
+            ((dynamic)this).When(@event as dynamic);
 
             //only record events that are new; ie not loaded from the event store
             if (isNew) 

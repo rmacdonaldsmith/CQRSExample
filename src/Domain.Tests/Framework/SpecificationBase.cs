@@ -7,33 +7,44 @@ using Contracts;
 using Domain;
 using NUnit.Framework;
 
-namespace CQRSSample.Domain.Tests
+namespace CQRSSample.Domain.Tests.Framework
 {
-    public abstract class SpecificationBase<TAggregate> where TAggregate : AggregateRoot, new()
+    public abstract class SpecificationBase<TAggregate, TCommand> 
+        where TAggregate : AggregateRoot, new() 
+        where TCommand : ICommand
     {
         private readonly List<IEvent> _given = new List<IEvent>();
-        private ICommand _when;
-        private List<IEvent> _then;
+        private TCommand _when;
+        private readonly List<IEvent> _then = new List<IEvent>();
         private bool _thenWasCalled;
         private string _idToUse;
+
         /// <summary>
         /// Setup and Domain / Application services in here.
         /// </summary>
-        protected abstract void SetupServices();
+        //protected abstract void SetupServices();
+
+        [SetUp]
+        public void SetUp()
+        {
+            _given.Clear();
+            _when = default(TCommand);
+            _then.Clear();
+        }
 
         public void Given(params IEvent[] givenEvents)
         {
             _given.AddRange(givenEvents);
         }
 
-        public void When(ICommand command)
+        public void When(TCommand command)
         {
             _when = command;
         }
 
-        protected abstract void ExecuteCommand(IRepository<TAggregate> eventStore, ICommand command);
+        protected abstract void ExecuteCommand(IRepository<TAggregate> repository, TCommand command);
 
-        public void Expect(params IEvent[] expectedEvents)
+        public void Then(params IEvent[] expectedEvents)
         {
             _thenWasCalled = true;
             _then.AddRange(expectedEvents);
@@ -46,16 +57,15 @@ namespace CQRSSample.Domain.Tests
                 ExecuteCommand(repository, _when);
                 actual = repository.SavedEvents;
             }
-            catch (DomainException de)
+            catch (Exception exception)
             {
                 //record exceptions as events and use them in the stream of actual events - make comparison of events (and/or exceptions) simple
-                actual = new IEvent[]{new ExceptionThrownEvent(de)};
+                actual = new IEvent[]{new ExceptionThrownEvent(exception)};
             }
 
             //compare the expected events against the actual events and assert equality
             //TODO: this method can return a collection of results that encapsulates where things are not equal - this allows us to print the results
-            CompareMessages(_given, actual.ToList());
-
+            CompareMessages(expectedEvents.ToList(), actual.ToList());
         }
 
         public static IEnumerable<IEvent> NoEvents
