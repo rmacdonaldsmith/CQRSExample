@@ -23,7 +23,11 @@ namespace CQRSSample.Domain.CustomerDomain
 
         public void RegisterNewCustomer(Guid customerId, PersonName personName, DateTime dateOfBirth, StreetAddress primaryAddress, MaritalStatus maritalStatus, GenderEnum gender)
         {
-            //do any business logic in here and fail if there is a problem
+            //do any business logic in here, check invariants and fail if there is a problem
+            //check DoB is not in the future
+            if(dateOfBirth > SystemTime.Now)
+                throw new DomainException(string.Format("Date of birth ({0}) can not be in the future.", dateOfBirth));
+
             ApplyChange(new CustomerRegistered
                 {
                     City = primaryAddress.City,
