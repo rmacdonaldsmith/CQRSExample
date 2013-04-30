@@ -43,14 +43,7 @@ namespace UI.NinjectModules
                                                typeof (CQRSSample.Domain.CommandHandlers.IHandleCommandsOfType<>),
                                                typeof (CQRSSample.Domain.EventHandlers.IHandleEventsOfType<>)
                                            })
-                                       //.InheritedFrom(typeof(CQRSSample.Domain.CommandHandlers.IHandleCommandsOfType<>))
                                        .BindSingleInterface());
-
-            //Kernel.Bind(scanner => scanner
-            //               .FromAssemblyContaining<CustomerRegistered>()
-            //               .SelectAllClasses()
-            //               .InheritedFrom(typeof(CQRSSample.Domain.EventHandlers.IHandleEventsOfType<>))
-            //               .BindSingleInterface());
         }
     }
 }
