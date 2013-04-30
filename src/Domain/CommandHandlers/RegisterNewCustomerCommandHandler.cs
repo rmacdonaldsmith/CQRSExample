@@ -5,7 +5,7 @@ using Contracts.Commands;
 
 namespace CQRSSample.Domain.CommandHandlers
 {
-    public class RegisterNewCustomerCommandHandler : Handles<RegisterNewCustomer>
+    public class RegisterNewCustomerCommandHandler : IHandleCommandsOfType<RegisterNewCustomer>
     {
         private readonly IRepository<CustomerDomain.Customer> _repository;
 
@@ -30,6 +30,11 @@ namespace CQRSSample.Domain.CommandHandlers
                 maritalStatus, gender);
 
             _repository.Save(customer, 1);
+
+            foreach (var evnt in customer.GetUncommittedEvents)
+            {
+                StaticEventPublisher.Publish(evnt);
+            }
         }
     }
 }

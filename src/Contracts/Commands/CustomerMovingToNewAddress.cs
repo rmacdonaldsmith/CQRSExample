@@ -2,7 +2,7 @@
 
 namespace Contracts.Commands
 {
-    public sealed class CustomerMovingToNewAddress : ICommand
+    public sealed class MoveCustomerToNewAddress : ICommand
     {
         public Guid CustomerId { get; set; }
 

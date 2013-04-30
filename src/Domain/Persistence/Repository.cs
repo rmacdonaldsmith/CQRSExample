@@ -9,7 +9,7 @@ namespace CQRSSample.Domain.Persistence
         T GetById(Guid id);
     }
 
-    public class Repository<T> : IRepository<T> where T : AggregateRoot, new() //new here means that we can instantiate the agg instance using a default constructor
+    public class Repository<T> : IRepository<T> where T : AggregateRoot, new() //new here means that we can instantiate the aggregate instance using a default constructor
     {
         private readonly IEventStore _storage;
 

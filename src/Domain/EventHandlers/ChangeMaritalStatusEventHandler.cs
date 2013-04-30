@@ -6,7 +6,7 @@ using Contracts.Events;
 
 namespace CQRSSample.Domain.EventHandlers
 {
-    public sealed class ChangeMaritalStatusEventHandler : Handles<CustomerMaritalStatusChanged>
+    public class ChangeMaritalStatusEventHandler : IHandleEventsOfType<CustomerMaritalStatusChanged>
     {
         private readonly IReadModelDataBase _dataBase;
 

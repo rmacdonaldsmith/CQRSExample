@@ -5,7 +5,7 @@ using Contracts.Commands;
 
 namespace CQRSSample.Domain.CommandHandlers
 {
-    public class ChangeMaritalStatusCommandHandler : Handles<ChangeCustomersMaritalStatus>
+    public class ChangeMaritalStatusCommandHandler : IHandleCommandsOfType<ChangeCustomersMaritalStatus>
     {
         private IRepository<Customer> _repository;
 
@@ -21,6 +21,9 @@ namespace CQRSSample.Domain.CommandHandlers
                 throw new InvalidOperationException(string.Format("MaritalStatus '{0}' is not valid", command.MaritalStatus));
 
             //load the customer domain object
+            var customer = _repository.GetById(command.CustomerId);
+            customer.ChangeMaritalStatus(newStatus);
+            _repository.Save(customer, 1);
         }
     }
 }

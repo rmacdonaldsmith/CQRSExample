@@ -57,7 +57,7 @@ namespace CQRSSample.Domain.CustomerDomain
             }
         }
 
-        public void CustomerMovingToNewAddress(CustomerMovingToNewAddress command)
+        public void CustomerMovingToNewAddress(MoveCustomerToNewAddress command)
         {
             ApplyChange(new CustomerMovedToNewAddress
                 {

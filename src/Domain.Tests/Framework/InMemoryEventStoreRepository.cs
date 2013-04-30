@@ -25,7 +25,7 @@ namespace CQRSSample.Domain.Tests.Framework
 
         public T GetById(Guid id)
         {
-            var aggregate = default(T); //this is why we have the "where T : new()" restrictions - so that we can new one up here without the need for a factory. Feel free to use factory, whatever instead.
+            var aggregate = new T(); //this is why we have the "where T : new()" restrictions - so that we can new one up here without the need for a factory. Feel free to use factory, whatever instead.
             aggregate.LoadsFromHistory(_inmemoryEventStore.GetForAggregate(id));
             return aggregate;
         }

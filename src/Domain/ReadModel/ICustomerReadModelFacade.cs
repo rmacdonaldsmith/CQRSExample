@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using Contracts.DTOs;
 
 namespace CQRSSample.Domain.ReadModel
 {
-    interface ICustomerReadModelFacade
+    public interface ICustomerReadModelFacade
     {
         CustomerDto Get(Guid customerId);
 
-
+        IEnumerable<CustomerDto> GetAll();
     }
 }

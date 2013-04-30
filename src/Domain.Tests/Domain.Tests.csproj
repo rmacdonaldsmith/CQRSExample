@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer\changing_customer_marital_status.cs" />
     <Compile Include="Customer\registering_a_new_customer.cs" />
     <Compile Include="Framework\ExceptionThrownEvent.cs" />
     <Compile Include="Framework\FakeEventStore.cs" />

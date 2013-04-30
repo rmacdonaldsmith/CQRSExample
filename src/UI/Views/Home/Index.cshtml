@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+
+<h3>Try one of the following:</h3>
+<ol class="round">
+    <li>
+        <h5>View Purchase Orders</h5>
+        @Html.ActionLink("View and manage your purchase orders here.", "Index", "Home")
+    </li>
+    <li>
+        <h5>Manage Customers</h5>
+        @Html.ActionLink("View and manage your customers accounts here.", "Index", "Customer")
+    </li>
+    <li>
+        <h5>Others Stuff</h5>
+        ...
+    </li>
+</ol>

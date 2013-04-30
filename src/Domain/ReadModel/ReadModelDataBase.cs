@@ -30,7 +30,7 @@ namespace CQRSSample.Domain.ReadModel
         public void Insert(string key, IMessage item)
         {
             IMessage dto;
-            if(_dataBase.TryGetValue(key, out dto) == false)
+            if(_dataBase.TryGetValue(key, out dto))
                 throw new InvalidOperationException(string.Format("The key '{0}' already exists, insert fails", key));
 
             _dataBase[key] = item;
