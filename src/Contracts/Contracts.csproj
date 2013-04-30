@@ -43,6 +43,7 @@
     <Compile Include="Commands\ChangeCustomersMaritalStatus.cs" />
     <Compile Include="Commands\CustomerMovingToNewAddress.cs" />
     <Compile Include="Commands\RegisterNewCustomer.cs" />
+    <Compile Include="DTOs\AddressDto.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
     <Compile Include="Events\CustomerMaritalStatusChanged.cs" />
     <Compile Include="Events\CustomerMovedToNewAddress.cs" />

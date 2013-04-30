@@ -46,7 +46,6 @@
     <Compile Include="CommandHandlers\ChangeMaritalStatusCommandHandler.cs" />
     <Compile Include="CommandHandlers\IHandleCommandsOfType.cs" />
     <Compile Include="CommandHandlers\RegisterNewCustomerCommandHandler.cs" />
-    <Compile Include="CommandHandlers\StaticEventPublisher.cs" />
     <Compile Include="CustomerDomain\OldCustomer.cs" />
     <Compile Include="DomainException.cs" />
     <Compile Include="CustomerDomain\GenderEnum.cs" />
@@ -55,6 +54,7 @@
     <Compile Include="EventHandlers\CustomerRegisteredEventHandler.cs" />
     <Compile Include="EventHandlers\IHandleEventsOfType.cs" />
     <Compile Include="Persistence\AggregateNotFoundException.cs" />
+    <Compile Include="Persistence\ConcurrencyException.cs" />
     <Compile Include="Persistence\EventStore.cs" />
     <Compile Include="Persistence\IEventStore.cs" />
     <Compile Include="Persistence\Repository.cs" />

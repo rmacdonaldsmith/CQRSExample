@@ -30,11 +30,6 @@ namespace CQRSSample.Domain.CommandHandlers
                 maritalStatus, gender);
 
             _repository.Save(customer, 1);
-
-            foreach (var evnt in customer.GetUncommittedEvents)
-            {
-                StaticEventPublisher.Publish(evnt);
-            }
         }
     }
 }
