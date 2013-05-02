@@ -262,9 +262,6 @@
     <Content Include="Views\Customer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Customer\Move.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Move\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
