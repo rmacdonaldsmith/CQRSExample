@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Contracts.DTOs
 {
@@ -23,6 +22,6 @@ namespace Contracts.DTOs
 
         public string MaritalStatus { get; set; }
 
-        public List<AddressDto> Addresses { get; set; }
+        public AddressDto Address { get; set; }
     }
 }

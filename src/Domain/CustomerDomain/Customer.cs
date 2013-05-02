@@ -10,6 +10,7 @@ namespace CQRSSample.Domain.CustomerDomain
         private Guid _id;
         private MaritalStatus _maritalStatus;
         private GenderEnum _gender;
+        private StreetAddress _address;
 
         public override Guid Id
         {
@@ -23,7 +24,7 @@ namespace CQRSSample.Domain.CustomerDomain
 
         public void RegisterNewCustomer(Guid customerId, PersonName personName, DateTime dateOfBirth, StreetAddress primaryAddress, MaritalStatus maritalStatus, GenderEnum gender)
         {
-            //do any business logic in here, check invariants and fail if there is a problem
+            //do any business logic in here, check invariants and throw a DomainException if there is a problem
             //check DoB is not in the future
             if(dateOfBirth > SystemTime.Now)
                 throw new DomainException(string.Format("Date of birth ({0}) can not be in the future.", dateOfBirth));
@@ -61,7 +62,12 @@ namespace CQRSSample.Domain.CustomerDomain
         {
             ApplyChange(new CustomerMovedToNewAddress
                 {
-                    
+                    City = command.City,
+                    CustomerId = command.CustomerId,
+                    HouseNumber = command.HouseNumber,
+                    State = command.State,
+                    Street = command.Street,
+                    Zip = command.Zip,
                 });
         }
 
@@ -74,6 +80,16 @@ namespace CQRSSample.Domain.CustomerDomain
         internal void When(CustomerMaritalStatusChanged evnt)
         {
             _maritalStatus = MaritalStatus.Parse(evnt.MaritalStatus);
+        }
+
+        internal void When(CustomerMovedToNewAddress evnt)
+        {
+            _address = new StreetAddress(
+                evnt.HouseNumber,
+                evnt.Street,
+                evnt.City,
+                evnt.State,
+                evnt.Zip);
         }
     }
 }

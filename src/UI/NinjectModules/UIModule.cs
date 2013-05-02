@@ -19,7 +19,8 @@ namespace UI.NinjectModules
                 .To<Repository<Customer>>();
 
             Bind<IEventStore>()
-                .To<EventStore>();
+                .To<EventStore>()
+                .InSingletonScope();
 
             Bind<ICustomerReadModelFacade>()
                 .To<CustomerReadModelService>();

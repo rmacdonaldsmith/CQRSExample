@@ -45,12 +45,14 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\ChangeMaritalStatusCommandHandler.cs" />
     <Compile Include="CommandHandlers\IHandleCommandsOfType.cs" />
+    <Compile Include="CommandHandlers\MoveCustomerToNewAddressCommandHandler.cs" />
     <Compile Include="CommandHandlers\RegisterNewCustomerCommandHandler.cs" />
     <Compile Include="CustomerDomain\OldCustomer.cs" />
     <Compile Include="DomainException.cs" />
     <Compile Include="CustomerDomain\GenderEnum.cs" />
     <Compile Include="CustomerDomain\MaritalStatus.cs" />
     <Compile Include="EventHandlers\ChangeMaritalStatusEventHandler.cs" />
+    <Compile Include="EventHandlers\CustomerMovedToNewAddressEventHandler.cs" />
     <Compile Include="EventHandlers\CustomerRegisteredEventHandler.cs" />
     <Compile Include="EventHandlers\IHandleEventsOfType.cs" />
     <Compile Include="Persistence\AggregateNotFoundException.cs" />

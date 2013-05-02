@@ -34,17 +34,15 @@ namespace CQRSSample.Domain.EventHandlers
                     DateOfBirth = evnt.DateOfBirth,
                     Gender = evnt.Gender,
                     MaritalStatus = evnt.MaritalStatus,
-                    Addresses = new List<AddressDto>
+                    Address = new AddressDto
                         {
-                            new AddressDto
-                                {
-                                    PrimaryAddress = true,
-                                    HouseNumber = evnt.HouseNumber,
-                                    Street = evnt.Street,
-                                    City = evnt.City,
-                                    State = evnt.State,
-                                    Zip = evnt.Zip
-                                }
+                            PrimaryAddress = true,
+                            HouseNumber = evnt.HouseNumber,
+                            Street = evnt.Street,
+                            City = evnt.City,
+                            State = evnt.State,
+                            Zip = evnt.Zip
+
                         },
                 });
         }

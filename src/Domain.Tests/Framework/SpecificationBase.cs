@@ -19,11 +19,6 @@ namespace CQRSSample.Domain.Tests.Framework
         private bool _thenWasCalled;
         private string _idToUse;
 
-        /// <summary>
-        /// Setup and Domain / Application services in here.
-        /// </summary>
-        //protected abstract void SetupServices();
-
         [SetUp]
         public void SetUp()
         {

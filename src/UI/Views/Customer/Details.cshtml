@@ -6,9 +6,11 @@
 
 <h2>Customer Details</h2>
 
+@Html.ActionLink("Move to new Address", "Create", "Move", new {Model.Id}, null)
+
 <fieldset>
     <legend>CustomerDto</legend>
-
+    
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FirstName)
     </div>
@@ -52,38 +54,38 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HouseNumber)
+         @Html.DisplayNameFor(model => model.Address.HouseNumber)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.HouseNumber)
+        @Html.DisplayFor(model => model.Address.HouseNumber)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Street)
+         @Html.DisplayNameFor(model => model.Address.Street)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Street)
+        @Html.DisplayFor(model => model.Address.Street)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.City)
+         @Html.DisplayNameFor(model => model.Address.City)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.City)
+        @Html.DisplayFor(model => model.Address.City)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.State)
+         @Html.DisplayNameFor(model => model.Address.State)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.State)
+        @Html.DisplayFor(model => model.Address.State)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Zip)
+         @Html.DisplayNameFor(model => model.Address.Zip)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Zip)
+        @Html.DisplayFor(model => model.Address.Zip)
     </div>
 
     <div class="display-label">
